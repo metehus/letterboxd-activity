@@ -3,5 +3,6 @@
   "error": "An error has occurred",
   "justWatched": "I've just watched",
   "justWatchedIn": "I watched in {{0}}",
-  "dateFormat": "M/D/YYYY"
+  "dateFormat": "M/D/YYYY",
+  "followMe": "Follow me on Letterboxd:"
 }

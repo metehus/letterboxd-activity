@@ -1,5 +1,5 @@
 {
-  "name": "letterboxd-lastwatch",
+  "name": "letterboxd-activity",
   "version": "0.1.0",
   "scripts": {
     "start": "node index.js",

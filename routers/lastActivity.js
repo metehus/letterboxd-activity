@@ -4,7 +4,7 @@ const languages = require('../languages');
 
 const json = require('../canvas/ltbxd.json');
 
-module.exports = class lastActivityRouter {
+class lastActivityRouter {
     constructor(req, res) {
         this.req = req;
         this.res = res;
@@ -29,4 +29,8 @@ module.exports = class lastActivityRouter {
             img.pngStream().pipe(this.res)
         })
     }
+}
+
+module.exports = (req, res) => {
+    new lastActivityRouter(req, res)
 }

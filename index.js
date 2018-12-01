@@ -13,8 +13,7 @@ app.get('/',(req, res) => {
 });
 
 app.get('/lastActivity/:user',(req, res) => {
-    console.log(req.params.user)
-    new lastActivityRouter(req, res)
+    lastActivityRouter(req, res)
 });
 
 // Listener
