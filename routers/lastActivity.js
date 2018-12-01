@@ -17,7 +17,7 @@ module.exports = class lastActivityRouter {
     }
 
     async routerInit() {
-        /*letterboxd(this.req.params.user).then(async items => {
+        letterboxd(this.req.params.user).then(async items => {
             this.res.set({'Content-Type': 'image/png'});
             this.res.status(200);
             let img = await lastMovie(this.lang, { user: this.req.params.user, movie: items[0] });
@@ -27,12 +27,6 @@ module.exports = class lastActivityRouter {
             this.res.status(404);
             let img = await invalidUser(this.lang, this.req.params.user);
             img.pngStream().pipe(this.res)
-        })*/
-
-
-        this.res.set({'Content-Type': 'image/png'});
-        this.res.status(200);
-        let img = await lastMovie(this.lang, { user: this.req.params.user, movie: json[0] });
-        img.pngStream().pipe(this.res)
+        })
     }
 }

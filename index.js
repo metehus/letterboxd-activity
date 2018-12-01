@@ -12,7 +12,7 @@ app.get('/',(req, res) => {
     res.send(JSON.stringify({ error: 'Invalid method.' }));
 });
 
-app.get('/lastWatch/:user',(req, res) => {
+app.get('/lastActivity/:user',(req, res) => {
     console.log(req.params.user)
     new lastActivityRouter(req, res)
 });
