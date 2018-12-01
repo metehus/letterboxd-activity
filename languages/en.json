@@ -1,0 +1,7 @@
+{
+  "invalidUser": "The letterboxd user {{0}} wasn't found.",
+  "error": "An error has occurred",
+  "justWatched": "I've just watched",
+  "justWatchedIn": "I watched in {{0}}",
+  "dateFormat": "M/D/YYYY"
+}

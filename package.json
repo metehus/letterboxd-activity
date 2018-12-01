@@ -1,0 +1,16 @@
+{
+  "name": "letterboxd-lastwatch",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon --exec node index.js"
+  },
+  "dependencies": {
+    "canvas": "^2.1.0",
+    "chalk": "^2.4.1",
+    "express": "~4.16.0",
+    "letterboxd": "^1.0.2",
+    "moment": "^2.22.2",
+    "nodemon": "^1.18.7"
+  }
+}

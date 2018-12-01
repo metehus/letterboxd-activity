@@ -1,0 +1,7 @@
+{
+  "invalidUser": "O usuário {{0}} não foi encontrado.",
+  "error": "Ocorreu um erro.",
+  "justWatched": "Acabei de assistir",
+  "justWatchedIn": "Assisti em {{0}}",
+  "dateFormat": "D/M/YYYY"
+}
