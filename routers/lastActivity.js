@@ -1,6 +1,10 @@
+require('dotenv').config()
 const letterboxd = require('letterboxd');
 const { invalidUser, lastMovie } = require('../canvas');
+const { MovieInfo } = require('../utils');
 const languages = require('../languages');
+
+const Movie = new MovieInfo({ omdb: process.env.OMDB_API, tmdb: process.env.TMDB_API });
 
 const json = require('../canvas/ltbxd.json');
 
@@ -20,8 +24,21 @@ class lastActivityRouter {
         letterboxd(this.req.params.user).then(async items => {
             this.res.set({'Content-Type': 'image/png'});
             this.res.status(200);
-            let img = await lastMovie(this.lang, { user: this.req.params.user, movie: items[0] });
-            img.pngStream().pipe(this.res)
+            let img;
+            Movie.getMovieInfo(items[0].film.title, items[0].film.year).then(async movieInfo => {
+                console.log(movieInfo)
+                img = await lastMovie(this.lang, {
+                    user: this.req.params.user,
+                    movie: items[0],
+                    omdb: movieInfo.omdb,
+                    tmdb: movieInfo.tmdb
+                });
+                img.pngStream().pipe(this.res)
+            }).catch(async e => {
+                console.error(e)
+                img = await lastMovie(this.lang, { user: this.req.params.user, movie: items[0] });
+                img.pngStream().pipe(this.res)
+            })
         }).catch(async e => {
             this.res.set({'Content-Type': 'image/png'});
             this.res.status(404);
