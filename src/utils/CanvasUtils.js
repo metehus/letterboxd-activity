@@ -1,9 +1,9 @@
-const { createCanvas, registerFont, loadImage, Context2d, Canvas } = require('canvas')
+const { createCanvas, registerFont, Context2d, Canvas } = require('canvas')
 
 const ASSETS_SRC = './assets'
 
-module.exports = class CanvasUtils {
-    static init() {
+module.exports = {
+    init() {
         Context2d.prototype.printTextBox = function (text, x, y, lH, fit) {
             fit = fit || 0
             var ctx = this
@@ -95,8 +95,10 @@ module.exports = class CanvasUtils {
             return this
         }
 
-    }
-    static registerFonts() {
+        this.registerFonts()
+    },
+
+    registerFonts() {
         registerFont(ASSETS_SRC + "/fonts/RobotoCondensed-Bold.ttf", { family: 'RobotoCondensed', weight: 'bold' })
         registerFont(ASSETS_SRC + "/fonts/RobotoCondensed-BoldItalic.ttf", { family: 'RobotoCondensed', weight: 'bold', style: 'italic' })
         registerFont(ASSETS_SRC + "/fonts/RobotoCondensed-Italic.ttf", { family: 'RobotoCondensed', style: 'italic' })
